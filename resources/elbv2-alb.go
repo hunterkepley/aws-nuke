@@ -120,6 +120,7 @@ func (e *ELBv2LoadBalancer) DisableProtection() error {
 
 func (e *ELBv2LoadBalancer) Properties() types.Properties {
 	properties := types.NewProperties()
+	properties.Set("ARN", e.arn)
 	for _, tagValue := range e.tags {
 		properties.SetTag(tagValue.Key, tagValue.Value)
 	}
